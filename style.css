@@ -1,18 +1,85 @@
 body {
   text-align: center;
+  background-color: #efefeb;
+  font-family: Abel;
+  margin: 0;
+}
+
+/********** NAVI BAR ***********/
+.navi {
   background-color: #333434;
+  overflow: hidden;
+}
+
+.navi span {
+  float: right;
+  color: white;
+  font-size: 30px;
+  margin-top: 4px;
+  margin-right: 16px;
+}
+
+.navi a {
+  float: left;
+  text-decoration: none;
+  display: block;
+  padding: 14px 16px;
+  font-size: 17px;
+  color: white;
+}
+
+.navi a:hover {
+  background-color: #ba6a5d;
+  transition: 0.3s;
+}
+
+/* Search bar */
+#navisearch {
+  float: left;
+  margin: 14px 16px;
+  border-radius: 50px;
+  text-indent: 4px;
+  border: none;
+  outline: none;
+  font-size: 10pt;
+  font-family: Open Sans;
+}
+
+#navisubmit {
+  visibility: hidden;
+}
+
+/********** FOOTER ***********/
+.footer {
+  position: fixed;
+  bottom: 4px;
+  left: 0;
+  width: 99%;
+  text-align: right;
+}
+
+#credit {
+  font-family: Arial;
+  font-size: 12pt;
+  color: #333434;
+}
+
+#credit:hover {
+  transition: 0.3s;
+  color: white;
 }
 
 #title {
   font-family: Abel;
   text-align: center;
-  margin-top: 20%;
+  margin-top: 15%;
   margin-bottom: 0.5%;
   font-size: 55pt;
   font-weight: bold;
-  color: #f7f7f7;
+  color: black;
 }
 
+/********** HOME PAGE ***********/
 form {
   display: block;
   text-align: center;
@@ -49,8 +116,19 @@ ul {
   list-style: none;
 }
 
-#book-info {
+/********** BOOK INFO PAGE ***********/
+.bookinfo {
+  color: white;
+  font-weight: normal;
+  margin: 10% auto;
   width: 500px;
-  height: 500px;
-  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #9c9a9b;
+  color: black;
+}
+
+.bookinfo p {
+  font-size: 12pt;
+  font-family: Open Sans;
 }

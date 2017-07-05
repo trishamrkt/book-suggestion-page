@@ -11,12 +11,18 @@ app.config(function($routeProvider){
 app.controller("mainCtrl", function($scope, $location) {
   $scope.books ={"harry potter" : "jk rowling", "the book thief" : "markus zusak"};
   $scope.title = "booklr";
+  $scope.showMini = false;
 
   function search(key){
-    if ($scope.books[key] === undefined)
-      {$scope.msg = "Sorry, book not found";}
+    if ($scope.books[key] === undefined){
+      $scope.msg = "Sorry, book not found";
+      $scope.booktitle = "";
+      $scope.author = "";
+    }
     else {
-      $scope.msg = "author: " + $scope.books[key];
+      $scope.msg = "Showing results for " + key;
+      $scope.booktitle = "title: " + key;
+      $scope.author = "author: " + $scope.books[key];
     }
   };
 
@@ -24,6 +30,11 @@ app.controller("mainCtrl", function($scope, $location) {
     $scope.book = findBook;
     search(findBook);
     $location.path("/bookInfo");
+    $scope.findBook = "";
   };
+
+  $scope.showSearch = function() {
+    $scope.showMini = !$scope.showMini;
+  }
 
 });

@@ -7,6 +7,9 @@
   <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
 
+  <!-- ICON STYLESHEET -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link type="text/css" rel="stylesheet" href="style.css"\>
 </head>
 
@@ -14,10 +17,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 
 <body ng-app="bookApp" ng-controller="mainCtrl">
+  <!-- NAVI BAR -->
+  <nav class="navi">
+    <span>{{ title }}</span>
+    <a href="#/!">home</a>
+    <a href="#!about">about</a>
+    <a href=""><i class="fa fa-search" ng-click="showSearch()"></i></a>
+    <form ng-submit="submit(findBook)" ng-show="showMini" >
+      <input type="text" id="navisearch" placeholder="Search" ng-model="findBook"/>
+      <input type="submit" id="navisubmit" value=""/>
+    </form>
+  </nav>
 
   <!-- MAIN VIEW -->
   <ng-view>
   </ng-view>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span id="credit">&#9812;</span>
+  </div>
 
   <script src="bookApp.js"></script>
   <script src="mainCtrl.js"></script>
