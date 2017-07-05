@@ -1,0 +1,56 @@
+body {
+  text-align: center;
+  background-color: #333434;
+}
+
+#title {
+  font-family: Abel;
+  text-align: center;
+  margin-top: 20%;
+  margin-bottom: 0.5%;
+  font-size: 55pt;
+  font-weight: bold;
+  color: #f7f7f7;
+}
+
+form {
+  display: block;
+  text-align: center;
+
+}
+
+#search {
+  padding: 2px;
+  font-size: 12pt;
+  width: 30%;
+  text-indent: 5px;
+  outline: none;
+}
+
+#submit {
+  font-family: Open Sans;
+  font-size: 11pt;
+  margin-top: 1%;
+  border: none;
+  background-color: #f7f7f7;
+  color: #7a7a7a;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#submit:hover {
+  border: 1px solid #c9c9c9;
+  color: black;
+  background-color: #fcfcfc;
+  transition: 0.2s;
+}
+
+ul {
+  list-style: none;
+}
+
+#book-info {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
