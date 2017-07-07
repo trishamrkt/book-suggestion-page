@@ -33,6 +33,18 @@
   <ng-view>
   </ng-view>
 
+  <table>
+    <th>title</th>
+    <th>author</th>
+    <th>genre</th>
+
+    <tr ng-repeat="x in bookDemo">
+      <td>{{ x.Title }}</td>
+      <td>{{ x.Author }}</td>
+      <td>{{ x.Description }}</td>
+    </tr>
+  </table>
+
   <!-- FOOTER -->
   <div class="footer">
     <span id="credit">&#9812;</span>

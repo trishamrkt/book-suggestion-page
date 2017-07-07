@@ -8,10 +8,14 @@ app.config(function($routeProvider){
   });
 });
 
-app.controller("mainCtrl", function($scope, $location) {
+app.controller("mainCtrl", function($scope, $location, $http) {
   $scope.books ={"harry potter" : "jk rowling", "the book thief" : "markus zusak"};
   $scope.title = "booklr";
   $scope.showMini = false;
+
+  $http.get('http://localhost:9000/book_demo.php').then(function (response) {
+    $scope.bookDemo = response.data.records;
+  });
 
   function search(key){
     if ($scope.books[key] === undefined){

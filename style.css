@@ -5,6 +5,10 @@ body {
   margin: 0;
 }
 
+table {
+  margin: 0 auto;
+}
+
 /********** NAVI BAR ***********/
 .navi {
   background-color: #333434;
@@ -38,7 +42,7 @@ body {
   float: left;
   margin: 14px 16px;
   border-radius: 50px;
-  text-indent: 4px;
+  text-indent: 6px;
   border: none;
   outline: none;
   font-size: 10pt;
@@ -69,6 +73,8 @@ body {
   color: white;
 }
 
+/********** TITLE ***********/
+
 #title {
   font-family: Abel;
   text-align: center;
@@ -95,6 +101,7 @@ form {
 }
 
 #submit {
+  display: none;
   font-family: Open Sans;
   font-size: 11pt;
   margin-top: 1%;
