@@ -5,7 +5,13 @@
 
 <!-- SEARCH BAR -->
 <form ng-submit="submit(findBook)">
-  <input id="search" type="text" ng-model="findBook"/>
+  <input id="search" type="text" ng-model="findBook" autofocus/>
+
+  <!-- SEARCH SUGGESTIONS -->
+  <div class="suggest-container" ng-show="showSuggestions(findBook)">
+    <p class="suggestions" ng-click="submit(x.Title)" ng-repeat="x in bookDemo | filter : { Title : findBook } | limitTo : 4 | orderBy: 'Title'">{{ x.Title }}</p>
+  </div>
+
   <div>
     <input id="submit" type="submit" value="search"/>
   </div>

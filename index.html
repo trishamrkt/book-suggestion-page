@@ -22,28 +22,23 @@
     <span>{{ title }}</span>
     <a href="#/!">home</a>
     <a href="#!about">about</a>
+
+    <!-- SEARCH BAR  -->
     <a href=""><i class="fa fa-search" ng-click="showSearch()"></i></a>
+
     <form ng-submit="submit(findBook)" ng-show="showMini" >
       <input type="text" id="navisearch" placeholder="Search" ng-model="findBook"/>
       <input type="submit" id="navisubmit" value=""/>
     </form>
   </nav>
 
+  <div class="navisuggest-cont" ng-show="showSuggestions(findBook)">
+    <p class="navisuggestion" ng-click="submit(book.Title)" ng-repeat="book in bookDemo | filter : { Title : findBook } | limitTo : 4 | orderBy: 'Title'">{{book.Title}}</p>
+  </div>
+
   <!-- MAIN VIEW -->
   <ng-view>
   </ng-view>
-
-  <table>
-    <th>title</th>
-    <th>author</th>
-    <th>genre</th>
-
-    <tr ng-repeat="x in bookDemo">
-      <td>{{ x.Title }}</td>
-      <td>{{ x.Author }}</td>
-      <td>{{ x.Description }}</td>
-    </tr>
-  </table>
 
   <!-- FOOTER -->
   <div class="footer">

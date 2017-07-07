@@ -35,6 +35,7 @@ table {
 .navi a:hover {
   background-color: #ba6a5d;
   transition: 0.3s;
+  cursor: crosshair;
 }
 
 /* Search bar */
@@ -47,12 +48,37 @@ table {
   outline: none;
   font-size: 10pt;
   font-family: Open Sans;
+  width: 150px;
 }
 
 #navisubmit {
   visibility: hidden;
 }
 
+/* Search suggestions*/
+.navisuggest-cont{
+  position: fixed;
+  clear: left;
+  background-color: white;
+  text-align: left;
+  border: 1px solid #c9c9c9;
+  width: 130px;
+  margin-left: 210px;
+  margin-top: -14px;
+  font-family: Open Sans;
+  font-size: 10pt;
+  text-indent: 3px;
+}
+
+.navisuggestion {
+  padding: 4px 0;
+  margin: 0 auto;
+}
+
+.navisuggestion:hover {
+  background-color: #edd3d4;
+  cursor: crosshair;
+}
 /********** FOOTER ***********/
 .footer {
   position: fixed;
@@ -76,6 +102,9 @@ table {
 /********** TITLE ***********/
 
 #title {
+  display: inline-block;
+  margin-left: autol;
+  margin-right: auto;
   font-family: Abel;
   text-align: center;
   margin-top: 15%;
@@ -83,6 +112,10 @@ table {
   font-size: 55pt;
   font-weight: bold;
   color: black;
+}
+
+#title:hover {
+  cursor: crosshair;
 }
 
 /********** HOME PAGE ***********/
@@ -94,6 +127,7 @@ form {
 
 #search {
   padding: 2px;
+  margin-bottom: 0;
   font-size: 12pt;
   width: 30%;
   text-indent: 5px;
@@ -119,8 +153,31 @@ form {
   transition: 0.2s;
 }
 
+
+/* SUGGESTIONS */
 ul {
   list-style: none;
+  text-align: left;
+}
+
+.suggest-container {
+  background-color: white;
+  margin: 0 auto;
+  width: 30%;
+  font-family: Open Sans;
+  text-align: left;
+  text-indent: 5px;
+  border: 1px solid #c9c9c9;
+}
+
+.suggestions {
+  padding: 4px 0;
+  margin: 0 auto;
+}
+
+.suggestions:hover {
+  background-color: #edd3d4;
+  cursor: crosshair;
 }
 
 /********** BOOK INFO PAGE ***********/
