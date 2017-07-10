@@ -1,8 +1,19 @@
 <!-- BOOK REC PAGE -->
+<!-- Header -->
+<h1 id="book-rec-title">suggestions</h1>
+<hr class="black-hr">
+
 <div class="bookinfo">
-  <h1>{{ book }}</h1>
-  <p>{{msg}}</p>
-  <p>{{booktitle}}</p>
-  <p>{{author}}</p>
-  <p>{{genre}}</p>
+  <div class="symbol-cont"><i class="fa fa-bookmark-o" id="symbol"></i></div>
+  <p id="booktitle">{{ book }}</p>
+  <hr>
+  <p class="info">{{msg}}</p>
+  <p class="info">{{author}}</p>
+</div>
+
+<div class="booksuggestion" ng-repeat="x in bookDemo | filter : myExpression">
+  <div class="star-cont"><i class="fa fa-heart favourite" ></i></div>
+  <p class="titles">{{x.Title}}</p>
+  <hr>
+  <p class="author">{{x.Author}}</p>
 </div>

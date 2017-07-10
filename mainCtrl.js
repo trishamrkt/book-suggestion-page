@@ -5,14 +5,19 @@ app.config(function($routeProvider){
   })
   .when("/bookInfo", {
     templateUrl: "bookinfo.html"
+  })
+  .when("/about", {
+    templateUrl: "about.html"
   });
 });
 
 app.controller("mainCtrl", function($scope, $location, $http, $window) {
-  $scope.books ={"harry potter" : "jk rowling", "the book thief" : "markus zusak"};
   $scope.title = "booklr";
   $scope.showMini = false;
   $scope.findBook = "";
+  $scope.myExpression = function (book){
+    return (book.Title !== $scope.book && book.Description === $scope.genre);
+  }
 
   // Get data from MySQL database
   $http.get('http://localhost:9000/book_demo.php').then(function (response) {
@@ -23,20 +28,17 @@ app.controller("mainCtrl", function($scope, $location, $http, $window) {
   function search(key){
     for (var i = 0; i < $scope.bookDemo.length; i++){
       if ($scope.bookDemo[i].Title.toLowerCase() === key.toLowerCase()){
-        $scope.msg = "Showing results for " + key;
-        $scope.booktitle = "title: " + $scope.bookDemo[i].Title;
-        $scope.author = "author: " + $scope.bookDemo[i].Author;
-        $scope.genre = "genre: " + $scope.bookDemo[i].Description;
+        $scope.msg = "";
+        $scope.author = $scope.bookDemo[i].Author;
+        $scope.genre = $scope.bookDemo[i].Description;
         return;
       }
     }
 
     $scope.msg = "Sorry, book not found";
-    $scope.booktitle = "";
     $scope.author = "";
-    $scope.genre = "";
+    return ("nothing");
   };
-
   // When user enters something into serach bar
   $scope.submit = function(findBook) {
     $scope.book = findBook;
