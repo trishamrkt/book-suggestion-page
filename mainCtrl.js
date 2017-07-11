@@ -8,16 +8,32 @@ app.config(function($routeProvider){
   })
   .when("/about", {
     templateUrl: "about.html"
+  })
+  .when("/favourites", {
+    templateUrl: "favourites.html"
   });
 });
 
-app.controller("mainCtrl", function($scope, $location, $http, $window) {
+app.controller("mainCtrl", function($scope, $location, $http, $window, $filter) {
   $scope.title = "booklr";
-  $scope.showMini = false;
-  $scope.findBook = "";
+  $scope.showMini = false;  // Used to toggle navi search bar
+  $scope.findBook = "";     // Search key
+  $scope.favourites = [];      // Users saved books
+
+  // Expression to filter out book recommendations
+  // based on genre
   $scope.myExpression = function (book){
     return (book.Title !== $scope.book && book.Description === $scope.genre);
   }
+
+  $scope.anotherExpression = function (book) {
+    for (var i = 0; i < $scope.favourites.length; i++){
+      if ($scope.favourites[i].Title.toLowerCase() === book.Title.toLowerCase()){
+        return true;
+      }
+    }
+    return false;
+  };
 
   // Get data from MySQL database
   $http.get('http://localhost:9000/book_demo.php').then(function (response) {
@@ -26,6 +42,7 @@ app.controller("mainCtrl", function($scope, $location, $http, $window) {
 
   // Performs search from user input
   function search(key){
+    // Searches for book
     for (var i = 0; i < $scope.bookDemo.length; i++){
       if ($scope.bookDemo[i].Title.toLowerCase() === key.toLowerCase()){
         $scope.msg = "";
@@ -35,11 +52,14 @@ app.controller("mainCtrl", function($scope, $location, $http, $window) {
       }
     }
 
+    // if book not found
     $scope.msg = "Sorry, book not found";
     $scope.author = "";
-    return ("nothing");
+    $scope.genre = "";
+    return;
   };
-  // When user enters something into serach bar
+
+  // When user searches for something
   $scope.submit = function(findBook) {
     $scope.book = findBook;
     search(findBook);
@@ -50,13 +70,29 @@ app.controller("mainCtrl", function($scope, $location, $http, $window) {
   // Toggles search bar in navigation bar
   $scope.showSearch = function() {
     $scope.showMini = !$scope.showMini;
-    var elem = $window.document.getElementById('navisearch');
-    elem.focus();
-  }
+  };
 
+  // Shows suggestions for search bar
   $scope.showSuggestions = function(search) {
     if (search !== "") {return true;}
     else {return false;}
+  };
+
+  // Add to favourite list
+  $scope.favourite = function(index, title) {
+    var check = $filter('filter')($scope.favourites, {Title : title});
+    if (check.length !== 0) {
+      var id = $scope.favourites.map(function(x) {return x.Title; }).indexOf(title);
+      $scope.favourites.splice(id, 1);
+    }
+    else {
+      var temp = $filter('filter')($scope.bookDemo, $scope.myExpression);
+      $scope.favourites.push(temp[index]);
+    }
+  }
+
+  $scope.unlike = function (index) {
+    $scope.favourites.splice(index, 1);
   }
 
 });

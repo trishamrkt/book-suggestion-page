@@ -1,18 +1,18 @@
 <!-- BOOK REC PAGE -->
 <!-- Header -->
-<h1 id="book-rec-title">suggestions</h1>
+<h1 class="page-title">suggestions</h1>
 <hr class="black-hr">
 
 <div class="bookinfo">
   <div class="symbol-cont"><i class="fa fa-bookmark-o" id="symbol"></i></div>
-  <p id="booktitle">{{ book }}</p>
+  <p class="booktitle">{{ book }}</p>
   <hr>
   <p class="info">{{msg}}</p>
   <p class="info">{{author}}</p>
 </div>
 
 <div class="booksuggestion" ng-repeat="x in bookDemo | filter : myExpression">
-  <div class="star-cont"><i class="fa fa-heart favourite" ></i></div>
+  <div class="fav-cont" ng-click="favourite($index, x.Title)" ng-class="{liked : anotherExpression(x)}" title="add to favourites"><i class="fa fa-heart favourite" ></i></div>
   <p class="titles">{{x.Title}}</p>
   <hr>
   <p class="author">{{x.Author}}</p>

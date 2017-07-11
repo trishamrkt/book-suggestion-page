@@ -1,0 +1,9 @@
+<h1 class="page-title"> favourites </h1>
+<hr class="black-hr">
+
+<div class="booksuggestion" ng-repeat="x in favourites">
+  <div class="unlike-cont fav-cont liked" ng-click="unlike($index)" title="unlike"><i class="fa fa-heart favourite"></i></div>
+  <p class="titles">{{ x.Title }}</p>
+  <hr>
+  <p class="author">{{ x.Author}}</p>
+</div>

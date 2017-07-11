@@ -63,7 +63,7 @@ table {
   text-align: left;
   border: 1px solid #c9c9c9;
   width: 130px;
-  margin-left: 210px;
+  margin-left: 305px;
   margin-top: -14px;
   font-family: Open Sans;
   font-size: 10pt;
@@ -182,7 +182,7 @@ ul {
 }
 
 /********** BOOK INFO PAGE ***********/
-#book-rec-title {
+.page-title {
   letter-spacing: 4pt;
   color: black;
   font-family: Abel;
@@ -232,7 +232,7 @@ ul {
   padding-top: 21%;
 }
 
-#booktitle {
+.booktitle {
   font-size: 16pt;
   text-transform: uppercase;
   font-family: Abel;
@@ -255,7 +255,7 @@ hr {
   margin: 1% auto;
 }
 
-.star-cont {
+.fav-cont {
   float: left;
   border-radius: 50%;
   width: 60px;
@@ -265,10 +265,14 @@ hr {
   margin-top: 6.5%;
 }
 
-.star-cont:hover {
+.fav-cont:hover {
   background-color: #ba6a5d;
-  color: black;
   transition: 0.3s;
+  cursor: crosshair;
+}
+
+.liked {
+  background-color: #ba6a5d;
 }
 
 .favourite {
@@ -292,6 +296,11 @@ hr {
   font-family: Open Sans;
   font-size: 10pt;
   color: #ba6a5d;
+}
+
+/********** FAVOURITES PAGE ***********/
+.unlike-cont:hover {
+  background-color: #9c9a9b;
 }
 
 /********** ABOUT PAGE ***********/
