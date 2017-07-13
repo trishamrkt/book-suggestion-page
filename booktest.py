@@ -5,7 +5,7 @@ import MySQLdb
 
 # Connect to database
 db = MySQLdb.connect(host="localhost",
-                    user="user",
+                    user="root",
                     passwd="pw",
                     db="dbname");
 

@@ -7,7 +7,8 @@ app.config(function($routeProvider){
     templateUrl: "bookinfo.html"
   })
   .when("/about", {
-    templateUrl: "about.html"
+    templateUrl: "about.html",
+    controller: "aboutCtrl"
   })
   .when("/favourites", {
     templateUrl: "favourites.html"
@@ -95,4 +96,9 @@ app.controller("mainCtrl", function($scope, $location, $http, $window, $filter) 
     $scope.favourites.splice(index, 1);
   }
 
+  // Go to wikipedia page
+  $scope.wiki = function(isbn) {
+    var url = "https://amazon.ca/dp/"
+    $window.open(url + isbn);
+  };
 });

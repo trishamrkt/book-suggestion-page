@@ -1,7 +1,35 @@
-<div id="about-header">
-  <i class="fa fa-bookmark-o" id="thing"></i>
-</div>
+<div class="about-slideshow" ng-repeat="x in headings" ng-hide="!isCurrentID($index)">
+  <div class="prev nav-arrow" ng-click="prevSlide($index)"></div>
+  <div class="next nav-arrow" ng-click="nextSlide($index)"></div>
+  
+  <div ng-if="$index === 0" id="aboutzero" class="cont">
+    <i class="fa fa-bookmark-o"></i>
+    <h1 class="about-headings">{{ x.Heading }}</h1>
+    <p>{{ x.Desc }}</p>
+  </div>
 
-<div id="about">
-  <p> Lorem ipsum </p>
+  <div ng-if="$index === 1" id="aboutone" class="cont">
+    <i class="fa fa-search"></i>
+    <h1 class="about-headings">{{ x.Heading }}</h1>
+    <p>{{ x.Desc }}</p>
+  </div>
+
+  <div ng-if="$index === 2" id="abouttwo" class="cont">
+    <i class="fa fa-list"></i>
+    <h1 class="about-headings">{{ x.Heading }}</h1>
+    <p>{{ x.Desc }}</p>
+  </div>
+
+  <div ng-if="$index === 3" id="aboutthree" class="cont">
+    <i class="fa fa-heart-o"></i>
+    <h1 class="about-headings">{{ x.Heading }}</h1>
+    <p>{{ x.Desc }}</p>
+  </div>
+
+  <div ng-if="$index === 4" id="aboutfour" class="cont">
+    <i class="fa fa-info"></i>
+    <h1 class="about-headings">{{ x.Heading }}</h1>
+    <p>{{ x.Desc }}</p>
+  </div>
+
 </div>

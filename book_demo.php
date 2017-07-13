@@ -3,9 +3,9 @@
   header("Content-Type: application/json; charset=UTF-8");
 
   $servername = "localhost:3306";
-  $username = "username";
-  $password = "password";
-  $dbname = "mydb";
+  $username = "root";
+  $password = "pw";
+  $dbname = "dbname";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,7 +22,8 @@
     if ($outp != "") { $outp .= ","; }
     $outp .= '{"Title" : ' . '"' . $rs["Title"] . '" ,';
     $outp .= '"Author" : ' . '"' . $rs["Author"] . '" ,';
-    $outp .= '"Description" :' . '"' . $rs["Description"] . '"}';
+    $outp .= '"Description" :' . '"' . $rs["Description"] . '" ,';
+    $outp .= '"ISBN" :' .'"' . $rs["ISBN"] . '"}';
   }
 
   $outp = '{"records": [' . $outp . ']};';
