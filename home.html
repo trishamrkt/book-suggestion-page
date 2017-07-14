@@ -5,7 +5,7 @@
 
 <!-- SEARCH BAR -->
 <form ng-submit="submit(findBook)">
-  <input id="search" type="text" ng-model="findBook" autofocus/>
+  <input id="search" type="text" ng-model="findBook" placeholder="Enter a book title" autofocus/>
 
   <!-- SEARCH SUGGESTIONS -->
   <div class="suggest-container" ng-show="showSuggestions(findBook)">
