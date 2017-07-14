@@ -37,7 +37,7 @@ app.controller("mainCtrl", function($scope, $location, $http, $window, $filter) 
   };
 
   // Get data from MySQL database
-  $http.get('http://localhost:9000/book_demo.php').then(function (response) {
+  $http.get('bookdata.php').then(function (response) {
     $scope.bookDemo = response.data.records;
   });
 
