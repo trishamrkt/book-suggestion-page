@@ -24,7 +24,7 @@ app.controller("mainCtrl", function($scope, $location, $http, $window, $filter) 
   // Expression to filter out book recommendations
   // based on genre
   $scope.myExpression = function (book){
-    return (book.Title !== $scope.book && book.Description === $scope.genre);
+    return (book.Title.toLowerCase() !== $scope.book.toLowerCase() && book.Description === $scope.genre);
   }
 
   $scope.anotherExpression = function (book) {
@@ -96,9 +96,16 @@ app.controller("mainCtrl", function($scope, $location, $http, $window, $filter) 
     $scope.favourites.splice(index, 1);
   }
 
-  // Go to wikipedia page
-  $scope.wiki = function(isbn) {
+  // Go to amazon page
+  $scope.goToAmz = function(isbn) {
     var url = "https://amazon.ca/dp/"
     $window.open(url + isbn);
   };
+
+  // Go to chapters page
+  $scope.goToChpt = function(isbn) {
+    url = "https://m.indigo.ca/product/books/title/";
+    $window.open(url + isbn);
+  }
+
 });

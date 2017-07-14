@@ -5,7 +5,7 @@
   $servername = "localhost:3306";
   $username = "root";
   $password = "pw";
-  $dbname = "dbname";
+  $dbname = "db";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +23,8 @@
     $outp .= '{"Title" : ' . '"' . $rs["Title"] . '" ,';
     $outp .= '"Author" : ' . '"' . $rs["Author"] . '" ,';
     $outp .= '"Description" :' . '"' . $rs["Description"] . '" ,';
-    $outp .= '"ISBN" :' .'"' . $rs["ISBN"] . '"}';
+    $outp .= '"ISBN" :' .'"' . $rs["ISBN"] . '",';
+    $outp .= '"ISBN13" :' . '"' . $rs["ISBN13"] . '"}';
   }
 
   $outp = '{"records": [' . $outp . ']};';

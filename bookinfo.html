@@ -11,9 +11,16 @@
   <p class="info">{{author}}</p>
 </div>
 
-<div ng-repeat="x in bookDemo | filter : myExpression" ng-mouseleave="showInfo = false">
-  <div class="booksuggestion" ng-mouseenter="showInfo = true"  >
-    <i class="fa fa-info-circle info-link" ng-click="wiki(x.ISBN)" ng-show="showInfo"></i>
+<div ng-repeat="x in bookDemo | filter : myExpression" ng-mouseleave="showLinks = false">
+  <div class="booksuggestion" ng-mouseenter="showLinks = true"  >
+
+    <div ng-show="showLinks">
+      <!-- amazon link -->
+      <i class="fa fa-amazon info-link amz" ng-click="goToAmz(x.ISBN)"></i>
+      <!-- chapters link -->
+      <i class="fa fa-exclamation info-link chpt" ng-click="goToChpt(x.ISBN13)"></i>
+    </div>
+
     <div class="fav-cont" ng-click="favourite($index, x.Title)" ng-class="{liked : anotherExpression(x)}" title="add to favourites"><i class="fa fa-heart favourite" ></i></div>
     <p class="titles">{{x.Title}}</p>
     <hr>

@@ -6,10 +6,10 @@ app.controller('aboutCtrl', function($scope, $interval){
     { Heading: "search",
       Desc: "Enter a title in the search bar and choose the closest match"
     },
-    { Heading: "get your suggestions",
+    { Heading: "suggestions",
       Desc: "booklr will give you a list of book recommendations to read next based on similar genres"
     },
-    { Heading: "choose your favourites",
+    { Heading: "favourites",
       Desc: "you can choose the books to save and view them in the favourites tab"
     },
     { Heading: "done!",

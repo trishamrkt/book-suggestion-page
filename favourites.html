@@ -3,7 +3,14 @@
 
 <div ng-repeat="x in favourites" ng-mouseleave="showInfo = false">
   <div class="booksuggestion" ng-mouseenter="showInfo = true">
-    <i class="fa fa-info-circle info-link" ng-click="wiki(x.ISBN)" ng-show="showInfo"></i>
+
+    <div ng-show="showInfo">
+      <!-- amazon link -->
+      <i class="fa fa-amazon info-link amz" ng-click="goToAmz(x.ISBN)"></i>
+      <!-- chapters link -->
+      <i class="fa fa-exclamation info-link chpt" ng-click="goToChpt(x.ISBN13)"></i>
+    </div>
+
     <div class="unlike-cont fav-cont liked" ng-click="unlike($index)" title="unlike"><i class="fa fa-heart favourite"></i></div>
     <p class="titles">{{ x.Title }}</p>
     <hr>
